@@ -12,15 +12,15 @@ let likes = document.querySelectorAll("span.like-glyph")
 likes.forEach(like => {
   like.addEventListener("click", function() {
     if(like.innerHTML === `${FULL_HEART}`) {
-      
+
       fullHeart(like)
     } else {
-      
+
       mimicServerCall()
       .then(() => {
        emptyHeart(like)
       })
-      
+
       .catch((error) => {
         modal.removeAttribute("class", "hidden")
         modal.innerHTML = error
